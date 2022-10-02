@@ -1,0 +1,44 @@
+{%load static%}
+{%if request.user.is_authenticated%}
+<header>
+    <div class="logo">
+        <img src="{% static '/images/logo.png' %}" alt="" />
+    </div>
+    <ul>
+        <li><a href="/home/">Home</a></li>
+        <li><a href="/mars/">Mars</a></li>
+        <li><a href="/travel/">Travel</a></li>
+        <li><a href="/market/">Market</a></li>
+        <li><a href="/quiz/">Quizes</a></li>
+    </ul>
+    <div class="profile">
+        <div class="user-img">u</div>
+        <div class="icon">
+            <img src="{% static 'images/arrow.png' %}">
+        </div>
+        <div class="options">
+            <ul>
+                <li><a>{{request.user.username}}</a></li>
+                <li><a>{{request.user.unique_key}}</a></li>
+                <li class="hover"><a href="/profile/">My Account</a></li>
+                <li class="hover"><a class="metapoints">Metapoints
+                    <div class="points">{{request.user.points}}</div>
+                </a></li>
+                <li class="hover"><a>Cart</a></li>
+                <li class="hover"><a href="/logout/">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+{%else%}
+<header>
+    <ul>
+        <li>
+            <a href="/signup/">signup</a>
+        </li>
+        <li>
+            <a href="/signin/">signin</a>
+        </li>
+    </ul>
+</header>
+{%endif%}
