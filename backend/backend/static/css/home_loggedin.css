@@ -163,17 +163,23 @@ main {
 }
 
 main .image {
-	background-image: url('static/images/planet.png');
 	width: 500px;
 	height: 500px;
 	border-radius: 50%;
 	box-shadow: -20px -20px 50px 10px black inset, 0px 0px 20px inset black;
-	animation: spiner 50s ease alternate infinite;
+	overflow: hidden;
+	position: relative;
 }
-
+main .image img{
+	animation: spiner 10s ease alternate infinite;
+	position: absolute;
+	z-index: -11;
+	right: -420px;
+	width: 1000px;
+}
 @keyframes spiner {
 	100% {
-		background-position: 100%;
+		right: -100px;
 	}
 }
 
